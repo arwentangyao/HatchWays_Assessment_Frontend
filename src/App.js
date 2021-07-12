@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import GradesDetails from './components/GradesDetails';
+import StudentCards from './components/StudentCards';
+import SearchStudent from './components/SearchStudent';
 import './App.css';
-import { FiPlus } from 'react-icons/fi';
-import { FiMinus } from 'react-icons/fi';
+
 
 const App = () => {
 	// setup state:
 	const [lists, setLists] = useState([]);
-  const [searchField, setSearchField] = useState('');
-  const [showGrades, setShowGrades] = useState(false)
+	const [searchField, setSearchField] = useState('');
+	const [showGrades, setShowGrades] = useState(false);
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -28,67 +28,28 @@ const App = () => {
 		return data;
 	};
 
-	// Calculate average fun
-	const average = (arr) => {
-		const newArr = arr.map((item) => parseInt(item));
-		const sum = newArr.reduce((a, c) => a + c);
-		return sum / newArr.length;
-	};
-
-	// Search Function:
-	const searchStudents = (e) => {
-		setSearchField(e.target.value);
-	};
-
 	// Create Searched Result
 	const searchedRes = lists.filter((list) => {
 		const fullName = `${list.firstName} ${list.lastName}`;
 		return fullName.toLowerCase().includes(searchField.toLowerCase());
-  });
-  
-  // Toggle details btn
-  // const toggleBtn = (id) => {
-  //   lists.map(list => {
-  //     if (list.id === id) {
-  //       setShowGrades(!showGrades)
-  //     }
-  //   })
-  // }
-  const toggleBtn = () => {
-    setShowGrades(!showGrades)
-  }
+	});
+
+	// Toggle details btn
+	// const toggleBtn = (id) => {
+	//   lists.map(list => {
+	//     if (list.id === id) {
+	//       setShowGrades(!showGrades)
+	//     }
+	//   })
+	// }
+	const toggleBtn = () => {
+		setShowGrades(!showGrades);
+	};
 
 	return (
 		<div className='container'>
-			<div className='searchBar'>
-				<input onChange={(e) => searchStudents(e)} type='search' placeholder='Search by name' />
-			</div>
-			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
-				<div key={id} className='card'>
-					<div>
-						<div className='mainCard'>
-							<img className='avatar' src={pic} alt='avatar' />
-							<ul style={{ listStyleType: 'none' }}>
-								<li className='studentName'>
-									{firstName} {lastName}
-								</li>
-								<div className='studentDetails'>
-									<li>Email: {email}</li>
-									<li>Company: {company}</li>
-									<li>Skill: {skill}</li>
-									<li>Average: {average(grades)} %</li>
-								</div>
-							</ul>
-						</div>
-						{showGrades && <GradesDetails grades={grades} />}
-					</div>
-					{showGrades ? (
-						<FiMinus onClick={toggleBtn} className='fiPlus' />
-					) : (
-						<FiPlus onClick={toggleBtn} className='fiPlus' />
-					)}
-				</div>
-			))}
+			<SearchStudent setSearchField={setSearchField} />
+			<StudentCards showGrades={showGrades} onToggle = {toggleBtn} searchedRes={searchedRes} />
 		</div>
 	);
 };

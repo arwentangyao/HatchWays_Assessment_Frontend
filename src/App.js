@@ -47,9 +47,15 @@ const App = () => {
   });
   
   // Toggle details btn
-  const toggleBtn = (id) => {
-    // setShowGrades(lists.map(list => list.id === id && !showGrades))
-    
+  // const toggleBtn = (id) => {
+  //   lists.map(list => {
+  //     if (list.id === id) {
+  //       setShowGrades(!showGrades)
+  //     }
+  //   })
+  // }
+  const toggleBtn = () => {
+    setShowGrades(!showGrades)
   }
 
 	return (
@@ -77,9 +83,9 @@ const App = () => {
 						{showGrades && <GradesDetails grades={grades} />}
 					</div>
 					{showGrades ? (
-						<FiMinus onClick={() => toggleBtn(id)} className='fiPlus' />
+						<FiMinus onClick={toggleBtn} className='fiPlus' />
 					) : (
-						<FiPlus onClick={() => toggleBtn(id)} className='fiPlus' />
+						<FiPlus onClick={toggleBtn} className='fiPlus' />
 					)}
 				</div>
 			))}

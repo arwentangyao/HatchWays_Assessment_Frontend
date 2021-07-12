@@ -37,13 +37,16 @@ const App = () => {
 						<img className='avatar' src={pic} alt='avatar' />
 
 						<ul style={{ listStyleType: 'none'}}>
-							<li style={{ fontWeight: 'bold' }}>
+							<li className='studentName'>
 								{firstName} {lastName}
-							</li>
-							<li>Email: {email}</li>
+            </li>
+            <div className='studentDetails'>
+              <li>Email: {email}</li>
 							<li>Company: {company}</li>
 							<li>Skill: {skill}</li>
 							<li>Average: {average(grades)} %</li>
+            </div>
+		
 						</ul>
 					</div>
 			))}

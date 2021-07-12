@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap');
 
 .container {
-	max-width: 60vw;
+	max-width: 45vw;
   margin: 120px auto;
-  max-height: 600px;
+  max-height: 640px;
   border: none;
   border-radius: 10px;
 	overflow-y: scroll;
@@ -21,14 +21,28 @@
 	align-items: center;
 	border-bottom: 1px solid #e9e8e8;
 	background: #fff;
-	height: 150px;
+	height: 180px;
 }
 
 img.avatar {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 	border-radius: 50%;
 	border: 1px solid #e9e8e8;
-	margin: 20px;
+	margin: 25px;
 }
 
+li.studentName {
+	font-size: 35px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin: 10px;
+}
+
+.studentDetails {
+	margin: 0 10px 10px 10px;
+	padding-left: 15px;
+	font-size: 15px;
+	line-height: 1.5;
+	color: #959595
+}

@@ -36,7 +36,7 @@ const App = () => {
 					<div key={id} className='card'>
 						<img className='avatar' src={pic} alt='avatar' />
 
-						<ul style={{ listStyleType: 'none', lineHeight: 2 }}>
+						<ul style={{ listStyleType: 'none'}}>
 							<li style={{ fontWeight: 'bold' }}>
 								{firstName} {lastName}
 							</li>

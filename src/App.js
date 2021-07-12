@@ -7,7 +7,8 @@ import { FiMinus } from 'react-icons/fi';
 const App = () => {
 	// setup state:
 	const [lists, setLists] = useState([]);
-	const [searchField, setSearchField] = useState('');
+  const [searchField, setSearchField] = useState('');
+  const [showGrades, setShowGrades] = useState(false)
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -43,7 +44,13 @@ const App = () => {
 	const searchedRes = lists.filter((list) => {
 		const fullName = `${list.firstName} ${list.lastName}`;
 		return fullName.toLowerCase().includes(searchField.toLowerCase());
-	});
+  });
+  
+  // Toggle details btn
+  const toggleBtn = (id) => {
+    // setShowGrades(lists.map(list => list.id === id && !showGrades))
+    
+  }
 
 	return (
 		<div className='container'>
@@ -67,10 +74,13 @@ const App = () => {
 								</div>
 							</ul>
 						</div>
-						<GradesDetails grades={grades} />
+						{showGrades && <GradesDetails grades={grades} />}
 					</div>
-					<FiPlus className='fiPlus' />
-					<FiMinus className='fiPlus' />
+					{showGrades ? (
+						<FiMinus onClick={() => toggleBtn(id)} className='fiPlus' />
+					) : (
+						<FiPlus onClick={() => toggleBtn(id)} className='fiPlus' />
+					)}
 				</div>
 			))}
 		</div>

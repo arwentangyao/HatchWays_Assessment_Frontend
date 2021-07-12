@@ -3,7 +3,8 @@ import './App.css';
 
 const App = () => {
 	// setup state:
-	const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState([]);
+  const [search, setSearch] = useState('')
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -31,7 +32,10 @@ const App = () => {
 	};
 
 	return (
-		<div className='container'>
+    <div className='container'>
+      <div className='searchBar'>
+        <input type="text" placeholder='Search by name'/>
+      </div>
 			{lists.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
 					<div key={id} className='card'>
 						<img className='avatar' src={pic} alt='avatar' />

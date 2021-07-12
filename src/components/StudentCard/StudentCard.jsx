@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import GradesDetails from './GradesDetails/GradesDetails';
+import GradesDetails from '../GradesDetails/GradesDetails';
+import styles from './StudentCard.module.css'
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 
@@ -13,30 +14,20 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 		return sum / newArr.length;
 	};
 
-	// Toggle details btn
-	// const toggleBtn = (id) => {
-	// 	lists.forEach((item) => {
-	// 		if (item.id === id) {
-	// 			console.log(id);
-	// 			setShowGrades(!showGrades);
-	// 		}
-	// 	});
-	// };
-
 	const toggleBtn = () => {
 		setShowGrades(!showGrades);
 	};
 
 	return (
-		<div className='card'>
+		<div className={styles.card}>
 			<div>
-				<div className='mainCard'>
-					<img className='avatar' src={pic} alt='avatar' />
+				<div className={styles.mainCard}>
+					<img className={styles.avatar} src={pic} alt='avatar' />
 					<ul style={{ listStyleType: 'none' }}>
-						<li className='studentName'>
+						<li className={styles.studentName}>
 							{firstName} {lastName}
 						</li>
-						<div className='studentDetails'>
+						<div className={styles.studentDetails}>
 							<li>Email: {email}</li>
 							<li>Company: {company}</li>
 							<li>Skill: {skill}</li>
@@ -47,9 +38,9 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 				{showGrades && <GradesDetails grades={grades} />}
 			</div>
 			{showGrades ? (
-				<FiMinus onClick={toggleBtn} className='fiPlus' />
+				<FiMinus onClick={toggleBtn} className={styles.fiPlus} />
 			) : (
-				<FiPlus onClick={toggleBtn} className='fiPlus' />
+				<FiPlus onClick={toggleBtn} className={styles.fiPlus} />
 			)}
 		</div>
 	);

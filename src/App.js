@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import StudentCards from './components/StudentCards';
-import SearchStudent from './components/GradesDetails/SearchStudent/SearchStudent';
+import StudentCards from './components/StudentCards/StudentCards';
+import SearchStudent from './components/SearchStudent/SearchStudent';
 import styles from './App.module.css'
 
 const App = () => {

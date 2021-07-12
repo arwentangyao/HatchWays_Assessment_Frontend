@@ -1,16 +1,16 @@
-import React from 'react'
-import './GradesDetails.styles.css'
+import React from 'react';
+import './GradesDetails.styles.css';
 
-const GradesDetails = ({grades}) => {
+const GradesDetails = ({ grades }) => {
 	return (
-		<>
-			{
-				grades.map((grade, idx) => (
-					<p className='gradesDetails' key={idx}>Test{idx}: {grade}%</p>
-				))
-			}
-		</>
-	)
-}
+		<div style={{ marginBottom: '20px' }}>
+			{grades.map((grade, idx) => (
+				<p className='gradesDetails' key={idx}>
+					Test{idx + 1} : <span style={{ marginLeft: '20px' }}>{grade}%</span>
+				</p>
+			))}
+		</div>
+	);
+};
 
-export default GradesDetails
+export default GradesDetails;

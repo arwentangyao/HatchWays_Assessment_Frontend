@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import GradesDetails from './components/GradesDetails';
 import './App.css';
-import { FiPlus } from 'react-icons/fi'
+import { FiPlus } from 'react-icons/fi';
+import { FiMinus } from 'react-icons/fi';
 
 const App = () => {
 	// setup state:
@@ -67,8 +68,9 @@ const App = () => {
 							</ul>
 						</div>
 						<GradesDetails grades={grades} />
-          </div>
-            <FiPlus className='fiPlus' />
+					</div>
+					<FiPlus className='fiPlus' />
+					<FiMinus className='fiPlus' />
 				</div>
 			))}
 		</div>

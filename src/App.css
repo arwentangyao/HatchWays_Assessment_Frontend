@@ -1,16 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
 .container {
-	max-width: 800px;
-  margin: 30px auto;
+	max-width: 60vw;
+  margin: 120px auto;
   max-height: 600px;
-  border: 1px solid steelblue;
-  padding: 30px;
-  border-radius: 5px;
+  border: none;
+  /* padding: 30px; */
+  border-radius: 10px;
 	overflow-y: scroll;
 	scrollbar-width: none;
+	background-color: #efefef;
+	box-shadow: 0 0 2px 2px #DBDBDB;
 }
 
 .container::-webkit-scrollbar {
 	display: none;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #e9e8e8;
+	background: #fff;
+}
+
+img .avatar {
+
 }

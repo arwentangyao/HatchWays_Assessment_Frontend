@@ -33,8 +33,8 @@ const App = () => {
 	return (
 		<div className='container'>
 			{lists.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
-					<div key={id} className='cards'>
-						<img src={pic} alt='avatar' />
+					<div key={id} className='card'>
+						<img className='avatar' src={pic} alt='avatar' />
 
 						<ul style={{ listStyleType: 'none', lineHeight: 2 }}>
 							<li style={{ fontWeight: 'bold' }}>

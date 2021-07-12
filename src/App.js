@@ -1,10 +1,11 @@
+import { list } from 'postcss';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
 const App = () => {
 	// setup state:
   const [lists, setLists] = useState([]);
-  const [search, setSearch] = useState('')
+  const [searchField, setSearchField] = useState('')
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -31,28 +32,38 @@ const App = () => {
 		return sum / newArr.length;
 	};
 
-	return (
-    <div className='container'>
-      <div className='searchBar'>
-        <input type="text" placeholder='Search by name'/>
-      </div>
-			{lists.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
-					<div key={id} className='card'>
-						<img className='avatar' src={pic} alt='avatar' />
+  // Search Function:
+  const searchStudents = e => {
+    setSearchField(e.target.value)
+  }
 
-						<ul style={{ listStyleType: 'none'}}>
-							<li className='studentName'>
-								{firstName} {lastName}
-            </li>
-            <div className='studentDetails'>
-              <li>Email: {email}</li>
+  // Create Searched Result
+  const searchedRes = lists.filter(list => {
+    const fullName = `${list.firstName} ${list.lastName}`;
+    return fullName.toLowerCase().includes(searchField.toLowerCase())
+  })
+
+	return (
+		<div className='container'>
+			<div className='searchBar'>
+				<input onChange={(e) => searchStudents(e)} type='search' placeholder='Search by name' />
+			</div>
+			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
+				<div key={id} className='card'>
+					<img className='avatar' src={pic} alt='avatar' />
+
+					<ul style={{ listStyleType: 'none' }}>
+						<li className='studentName'>
+							{firstName} {lastName}
+						</li>
+						<div className='studentDetails'>
+							<li>Email: {email}</li>
 							<li>Company: {company}</li>
 							<li>Skill: {skill}</li>
 							<li>Average: {average(grades)} %</li>
-            </div>
-		
-						</ul>
-					</div>
+						</div>
+					</ul>
+				</div>
 			))}
 		</div>
 	);

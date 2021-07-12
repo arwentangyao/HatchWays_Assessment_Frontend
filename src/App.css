@@ -1,2 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap');
 
+.container {
+	max-width: 800px;
+  margin: 30px auto;
+  max-height: 600px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+	overflow-y: scroll;
+	scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar {
+	display: none;
+}

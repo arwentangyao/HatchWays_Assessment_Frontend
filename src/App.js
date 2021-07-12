@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'
+import './App.css';
 
 const App = () => {
 	// setup state:
@@ -23,7 +23,7 @@ const App = () => {
 		return data;
 	};
 
-  // Calculate average fun
+	// Calculate average fun
 	const average = (arr) => {
 		const newArr = arr.map((item) => parseInt(item));
 		const sum = newArr.reduce((a, c) => a + c);
@@ -31,22 +31,23 @@ const App = () => {
 	};
 
 	return (
-		<>
+		<div className='container'>
 			{lists.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
-				<ul key={id} style={{ listStyleType: 'none', lineHeight: 2 }}>
-					<li>
+					<div key={id} className='cards'>
 						<img src={pic} alt='avatar' />
-					</li>
-					<li style={{ fontWeight: 'bold' }}>
-						{firstName} {lastName}
-          </li>
-					<li>Email: {email}</li>
-          <li>Company: {company}</li>
-					<li>Skill: {skill}</li>
-					<li>Average: {average(grades)} %</li>
-				</ul>
+
+						<ul style={{ listStyleType: 'none', lineHeight: 2 }}>
+							<li style={{ fontWeight: 'bold' }}>
+								{firstName} {lastName}
+							</li>
+							<li>Email: {email}</li>
+							<li>Company: {company}</li>
+							<li>Skill: {skill}</li>
+							<li>Average: {average(grades)} %</li>
+						</ul>
+					</div>
 			))}
-		</>
+		</div>
 	);
 };
 

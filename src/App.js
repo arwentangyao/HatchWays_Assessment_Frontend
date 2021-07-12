@@ -8,7 +8,6 @@ const App = () => {
 	// setup state:
 	const [lists, setLists] = useState([]);
 	const [searchField, setSearchField] = useState('');
-	const [showGrades, setShowGrades] = useState(false);
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -34,22 +33,10 @@ const App = () => {
 		return fullName.toLowerCase().includes(searchField.toLowerCase());
 	});
 
-	// Toggle details btn
-	// const toggleBtn = (id) => {
-	//   lists.map(list => {
-	//     if (list.id === id) {
-	//       setShowGrades(!showGrades)
-	//     }
-	//   })
-	// }
-	const toggleBtn = () => {
-		setShowGrades(!showGrades);
-	};
-
 	return (
 		<div className='container'>
 			<SearchStudent setSearchField={setSearchField} />
-			<StudentCards showGrades={showGrades} onToggle = {toggleBtn} searchedRes={searchedRes} />
+			<StudentCards searchedRes={searchedRes} />
 		</div>
 	);
 };

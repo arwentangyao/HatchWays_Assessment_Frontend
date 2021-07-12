@@ -1,12 +1,13 @@
 import React from 'react'
 import StudentCard from './StudentCard';
 
-const StudentCards = ({ searchedRes, showGrades, onToggle }) => {
+const StudentCards = ({ searchedRes }) => {
 	return (
-		<div>
+		<>
 			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
 				<StudentCard
 					key={id}
+					id={id}
 					pic={pic}
 					firstName={firstName}
 					lastName={lastName}
@@ -14,11 +15,9 @@ const StudentCards = ({ searchedRes, showGrades, onToggle }) => {
 					skill={skill}
 					grades={grades}
 					company={company}
-					showGrades={showGrades}
-					onToggle={onToggle}
 				/>
 			))}
-		</div>
+		</>
 	);
 };
 

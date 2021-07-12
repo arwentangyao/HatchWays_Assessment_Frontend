@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import GradesDetails from './GradesDetails';
+import GradesDetails from './GradesDetails/GradesDetails';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import StudentCards from './components/StudentCards';
-import SearchStudent from './components/SearchStudent';
-import './App.css';
-
+import SearchStudent from './components/GradesDetails/SearchStudent/SearchStudent';
+import styles from './App.module.css'
 
 const App = () => {
 	// setup state:
@@ -34,7 +33,7 @@ const App = () => {
 	});
 
 	return (
-		<div className='container'>
+		<div className={styles.container}>
 			<SearchStudent setSearchField={setSearchField} />
 			<StudentCards searchedRes={searchedRes} />
 		</div>

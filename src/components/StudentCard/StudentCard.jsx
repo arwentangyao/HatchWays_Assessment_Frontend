@@ -19,11 +19,12 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 		setShowGrades(!showGrades);
 	};
 
-	const submitForm = (e) => {
+	const submitForm =  (e) => {
 		e.preventDefault();
 
-		// const newTag = tagInput;
-		onAddTag(tagInput);
+		const newTag = tagInput;
+	
+		onAddTag(newTag);
 
 		setTagInput('');
 	};

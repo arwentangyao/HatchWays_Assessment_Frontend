@@ -34,14 +34,14 @@ const App = () => {
 	});
 
 	// Adding new Tag
-	const AddTag = newTag => {
+	const AddTag = (newTag) => {
 		setTags([...tags, newTag]);
 	}
-	
+
 	return (
 		<div className={styles.container}>
 			<SearchStudent setSearchField={setSearchField} text='Search by name' />
-			{/* <SearchStudent setSearchField={setSearchField} text='Search by tag' /> */}
+			<SearchStudent setSearchField={setSearchField} text='Search by tag' />
 			<StudentCards tags={tags} onAddTag={AddTag} searchedRes={searchedRes} />
 		</div>
 	);

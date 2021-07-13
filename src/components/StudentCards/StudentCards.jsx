@@ -4,7 +4,7 @@ import StudentCard from '../StudentCard/StudentCard';
 const StudentCards = ({ searchedRes }) => {
 	return (
 		<>
-			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company, tags, onAddTag }) => (
+			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
 				<StudentCard
 					key={id}
 					id={id}
@@ -15,8 +15,6 @@ const StudentCards = ({ searchedRes }) => {
 					skill={skill}
 					grades={grades}
 					company={company}
-					tags={tags}
-					onAddTag={onAddTag}
 				/>
 			))}
 		</>

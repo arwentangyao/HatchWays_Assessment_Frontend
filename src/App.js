@@ -7,7 +7,6 @@ const App = () => {
 	// setup state:
 	const [lists, setLists] = useState([]);
 	const [searchField, setSearchField] = useState('');
-	const [tags, setTags] = useState([]);
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -34,15 +33,15 @@ const App = () => {
 	});
 
 	// Adding new Tag
-	const AddTag = (newTag) => {
-		setTags([...tags, newTag]);
-	}
+	// const AddTag = (newTag) => {
+	// 	setTags([...tags, newTag]);
+	// }
 
 	return (
 		<div className={styles.container}>
 			<SearchStudent setSearchField={setSearchField} text='Search by name' />
 			<SearchStudent setSearchField={setSearchField} text='Search by tag' />
-			<StudentCards tags={tags} onAddTag={AddTag} searchedRes={searchedRes} />
+			<StudentCards searchedRes={searchedRes} />
 		</div>
 	);
 };

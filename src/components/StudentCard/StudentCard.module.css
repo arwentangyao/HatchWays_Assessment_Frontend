@@ -11,7 +11,7 @@ img.avatar {
 	height: 120px;
 	border-radius: 50%;
 	border: 1px solid #e9e8e8;
-	margin: 25px;
+	margin: 25px 25px 15px 25px;
 }
 
 li.studentName {
@@ -22,7 +22,7 @@ li.studentName {
 }
 
 .studentDetails {
-	margin: 0 10px 10px 10px;
+	margin: 0 10px;
 	padding-left: 15px;
 	font-size: 15px;
 	line-height: 1.5;
@@ -46,7 +46,7 @@ li.studentName {
 }
 
 .tagArea {
-	margin: 20px 0 20px 195px;
+	margin: 10px 0 20px 195px;
 }
 
 .tagArea input {
@@ -59,6 +59,13 @@ li.studentName {
 	outline: none;
 }
 
-.tags {
-	
+.tagsDisplay {
+	margin: 0 0 20px 195px;
+}
+
+.tagsDisplay > span {
+	padding: 8px 10px;
+	background: #e0e0e0;
+	margin-right:10px;
+	border-radius: 5px;
 }

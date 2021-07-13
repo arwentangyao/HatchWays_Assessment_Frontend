@@ -45,7 +45,8 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 					</ul>
 				</div>
 				{showGrades && <GradesDetails grades={grades} />}
-				<div className={styles.tags}>
+
+				<div className={styles.tagsDisplay}>
 					{tags.map((tag, idx) => (
 						<span key={idx}>{tag}</span>
 					))}

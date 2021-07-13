@@ -44,3 +44,17 @@ li.studentName {
 .fiPlus:hover {
 	cursor: pointer;
 }
+
+.tagArea {
+	margin: 20px 0 20px 195px;
+}
+
+.tagArea input {
+	border: none;
+	border-bottom: 1px solid #959595;
+	padding-bottom: 10px;
+}
+
+.tagArea input:focus {
+	outline: none;
+}

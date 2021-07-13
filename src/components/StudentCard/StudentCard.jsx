@@ -36,6 +36,9 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 					</ul>
 				</div>
 				{showGrades && <GradesDetails grades={grades} />}
+				<div className={styles.tagArea}>
+					<input type='text' placeholder='Add a tag' />
+				</div>
 			</div>
 			{showGrades ? (
 				<FiMinus onClick={toggleBtn} className={styles.fiPlus} />

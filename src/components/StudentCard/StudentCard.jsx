@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import GradesDetails from '../GradesDetails/GradesDetails';
-import styles from './StudentCard.module.css'
+import styles from './StudentCard.module.css';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 
 const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, company }) => {
 	const [showGrades, setShowGrades] = useState(false);
+	const [tagInput, setTagInput] = useState('');
+	const [tags, setTags] = useState([])
 
 	// Calculate average fun
 	const average = (arr) => {
@@ -16,6 +18,13 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 
 	const toggleBtn = () => {
 		setShowGrades(!showGrades);
+	};
+
+	const addTag = (e) => {
+		e.preventDefault();
+		const newTag = tagInput
+		setTags([...tags, newTag]);
+		setTagInput('')
 	};
 
 	return (
@@ -36,9 +45,14 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 					</ul>
 				</div>
 				{showGrades && <GradesDetails grades={grades} />}
-				<div className={styles.tagArea}>
-					<input type='text' placeholder='Add a tag' />
+				<div className={styles.tags}>
+					{tags.map((tag, idx) => (
+						<span key={idx}>{tag}</span>
+					))}
 				</div>
+				<form className={styles.tagArea} onSubmit={addTag}>
+					<input type='text' value={tagInput} onChange={(e) => setTagInput(e.target.value)} placeholder='Add a tag' />
+				</form>
 			</div>
 			{showGrades ? (
 				<FiMinus onClick={toggleBtn} className={styles.fiPlus} />

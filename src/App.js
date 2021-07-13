@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import StudentCards from './components/StudentCards/StudentCards';
 import SearchStudent from './components/SearchStudent/SearchStudent';
 import styles from './App.module.css'
-import tags from 'language-tags';
 
 const App = () => {
 	// setup state:
 	const [lists, setLists] = useState([]);
 	const [searchField, setSearchField] = useState('');
-	// const [tags, setTags] = useState([])
+	const [tags, setTags] = useState([]);
 
 	const endpoint = 'https://api.hatchways.io/assessment/students';
 
@@ -35,14 +34,15 @@ const App = () => {
 	});
 
 	// Adding new Tag
-	const addNewTag = (id, tag) => {
-		setLists(lists.map(list => list.id === id && {...list, tags: tags.push(tag)}))
+	const AddTag = newTag => {
+		setTags([...tags, newTag]);
 	}
-
+	
 	return (
 		<div className={styles.container}>
-			<SearchStudent setSearchField={setSearchField} />
-			<StudentCards addTag={addNewTag} searchedRes={searchedRes} />
+			<SearchStudent setSearchField={setSearchField} text='Search by name' />
+			{/* <SearchStudent setSearchField={setSearchField} text='Search by tag' /> */}
+			<StudentCards tags={tags} onAddTag={AddTag} searchedRes={searchedRes} />
 		</div>
 	);
 };

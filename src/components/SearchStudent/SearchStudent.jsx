@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './SearchStudent.module.css'
 
-const SearchStudent = ({setSearchField}) => {
+const SearchStudent = ({setSearchField, text}) => {
 	// Search Function:
 	const searchStudents = (e) => {
 		setSearchField(e.target.value);
@@ -9,7 +9,7 @@ const SearchStudent = ({setSearchField}) => {
 
 	return (
 		<div className={styles.searchBar}>
-			<input onChange={(e) => searchStudents(e)} type='search' placeholder='Search by name' />
+			<input onChange={(e) => searchStudents(e)} type='search' placeholder={text} />
 		</div>
 	);
 }

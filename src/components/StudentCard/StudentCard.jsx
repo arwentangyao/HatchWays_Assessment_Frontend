@@ -4,10 +4,9 @@ import styles from './StudentCard.module.css';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 
-const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, company }) => {
+const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, company, tags, addTag }) => {
 	const [showGrades, setShowGrades] = useState(false);
 	const [tagInput, setTagInput] = useState('');
-	const [tags, setTags] = useState([]);
 
 	// Calculate average fun
 	const average = (arr) => {
@@ -22,7 +21,7 @@ const StudentCard = ({ id, pic, firstName, lastName, email, skill, grades, compa
 
 	const submitForm = (e) => {
 		e.preventDefault();
-		setTags([...tags, tagInput]);
+		addTag(id, tagInput);
 		setTagInput('');
 	};
 

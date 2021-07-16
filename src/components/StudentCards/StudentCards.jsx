@@ -1,10 +1,10 @@
 import React from 'react'
 import StudentCard from '../StudentCard/StudentCard';
 
-const StudentCards = ({ searchedRes }) => {
+const StudentCards = ({ searchedRes, addTag }) => {
 	return (
 		<>
-			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company }) => (
+			{searchedRes.map(({ id, pic, firstName, lastName, email, skill, grades, company, tags }) => (
 				<StudentCard
 					key={id}
 					id={id}
@@ -15,6 +15,8 @@ const StudentCards = ({ searchedRes }) => {
 					skill={skill}
 					grades={grades}
 					company={company}
+					tags={tags}
+					addTag={addTag}
 				/>
 			))}
 		</>
